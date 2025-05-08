@@ -2864,18 +2864,18 @@
 			session.defaultPassword = "someEncryptionKey123"; // Change this password if self-deploying for added security/privacy
 			// session.salt = location.hostname; // used only if password is not == False. You can change to "session.salt = location.hostname+location.pathname;" for greater deployment isolation
 			
-			session.stunServers = [{ urls: ["stun:stun.l.google.com:19302", "stun:stun.cloudflare.com:3478"]}]; // google + cloudflare stun servers. default
+			session.stunServers = [{ urls: [ "stun:stun.cloudflare.com:3478","stun:stun.l.google.com:19302"]}]; // google + cloudflare stun servers. default
 			
 			///////////////  ------  Custom basic TURN SETUP SECTION STARTS Here --------
-			// session.configuration = {         // uncomment to disable the default usage of the vdo.ninja turn servers.
-			//	iceServers: session.stunServers,
-			//	sdpSemantics: session.sdpSemantics
-			// };
-			// var turn = {}; // Just an example entry for a basic TURN server 
-			// turn.username = "steve";
-			// turn.credential = "justtesting";
-			// turn.urls = ["turn:turn.obs.ninja:443"]; 
-			// session.configuration.iceServers.push(turn);
+			 session.configuration = {         // uncomment to disable the default usage of the vdo.ninja turn servers.
+				iceServers: session.stunServers,
+				sdpSemantics: session.sdpSemantics
+			 };
+			 var turn = {}; // Just an example entry for a basic TURN server 
+			 turn.username = "5db1084f89829315b1393ab1b82a1bbc";
+			 turn.credential = "ee8a754ad0a67e536513be733f7f21fafb5ca4a2ecb1801a4cd7249ea2a87177";
+			 turn.urls = ["turn:turn.cloudflare.com:3478"]; 
+			 session.configuration.iceServers.push(turn);
 			//
 			// turn = {}; // second turn server example entry. 
 			// turn.username = "steve";
@@ -2924,7 +2924,7 @@
 			// }
 			//////////////////// -------------- END OF ALTERNATIVE TURN SETUP SECTION -------
 
-			// session.configuration.iceTransportPolicy = "relay";  // uncomment to enable "&privacy" and force the TURN server's use
+			 session.configuration.iceTransportPolicy = "relay";  // uncomment to enable "&privacy" and force the TURN server's use
 
 			// session.wss = "wss://wss.vdo.ninja:443"; // US-East (Default)
 
